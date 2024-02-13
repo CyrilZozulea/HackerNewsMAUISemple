@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HackerNewsMAUISemple.Pages.Details.StoryDetails"
+             Title="Story details">
+    <ScrollView>
+        <Grid x:Name="ContentGrid">
+            <StackLayout Grid.Column="1"
+                         Grid.Row="0">
+                <Border Background="#f6f6ef"
+                        StrokeThickness="1"
+                        VerticalOptions="Start"
+                        MaximumHeightRequest="400"
+                        StrokeShape="RoundRectangle 40,40,40,40"
+                        Margin="10">
+                    <StackLayout Margin="10"
+                                 VerticalOptions="Start">
+                        <Label VerticalOptions="Center"
+                               Margin="10">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Type: "
+                                          FontAttributes="Bold"
+                                          FontSize="20"/>
+                                    <Span Text="{Binding type}"
+                                          FontAttributes="Bold"
+                                          FontSize="20"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label VerticalOptions="Center"
+                               Margin="10">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Score: "
+                                          FontAttributes="Bold"
+                                          FontSize="20"/>
+                                    <Span Text="{Binding score}"
+                                          FontAttributes="Bold"
+                                          FontSize="20"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label VerticalOptions="Center"
+                               Margin="10">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Time: "
+                                          FontAttributes="Bold"
+                                          FontSize="20"/>
+                                    <Span Text="{Binding Date}"
+                                          FontAttributes="Bold"
+                                          FontSize="20"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label VerticalOptions="Center"
+                               Margin="10">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="By: "
+                                          FontAttributes="Bold"
+                                          FontSize="20"/>
+                                    <Span Text="{Binding by}"
+                                          FontAttributes="Bold"
+                                          FontSize="20"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </Border>
+
+                <Button Margin="10"
+                        x:Name="comments"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="15"
+                        Clicked="ShowCommends"
+                        BackgroundColor="Transparent"
+                        BorderColor="#ff6600"
+                        BorderWidth="1"/>
+            </StackLayout>
+            <Grid Grid.Column="0"
+                  Grid.Row="1"
+                  RowDefinitions="50,*">
+                <Label Text="{Binding title}"
+                       FontSize="20"
+                       Margin="10"
+                       Grid.Row="0"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"/>
+                <WebView Grid.Row="1"
+                         x:Name="show_url"
+                         Source="{Binding url}"/>
+
+                <Label Text="Url is null or empty"
+                       IsVisible="false"
+                       x:Name="emptyUrl"
+                       Grid.Row="1"                     
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="20"/>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

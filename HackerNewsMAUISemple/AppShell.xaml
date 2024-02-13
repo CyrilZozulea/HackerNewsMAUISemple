@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="HackerNewsMAUISemple.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:main="clr-namespace:HackerNewsMAUISemple.Pages.Main"
+    Shell.BackgroundColor="#ff6600"
+    Shell.TitleColor="White"
+    Shell.TabBarTitleColor="#ff6600"
+    Shell.TabBarForegroundColor="#ff6600"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab 
+            Title="Top 500 stories"
+            Icon="list.png">
+            <ShellContent
+                BindingContext="TopStories"
+                Title="Top"
+                ContentTemplate="{DataTemplate main:TopStories}"
+                Route="TopStories" />
+            <ShellContent
+                BindingContext="NewStories"
+                Title="New"
+                ContentTemplate="{DataTemplate main:NewStories}"
+                Route="NewStories" />
+            <ShellContent
+                BindingContext="BestStories"
+                Title="Best"
+                ContentTemplate="{DataTemplate main:BestStories}"
+                Route="BestStories" />
+        </Tab>
+        <Tab 
+            Title="Top 200 stories"
+            Icon="list.png">
+            <ShellContent
+                Title="Ask"
+                ContentTemplate="{DataTemplate main:AskStories}"
+                Route="AskStories" />
+            <ShellContent
+                Title="Show"
+                ContentTemplate="{DataTemplate main:ShowStories}"
+                Route="ShowStories" />
+            <ShellContent
+                Title="Job"
+                ContentTemplate="{DataTemplate main:JobStories}"
+                Route="JobStories" />
+        </Tab>
+    </TabBar>
+</Shell>

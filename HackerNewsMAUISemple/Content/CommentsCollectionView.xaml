@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HackerNewsMAUISemple.Content.CommentsCollectionView">
+    <Grid>
+        <CollectionView x:Name="collection"
+                        IsVisible="false"
+                        ItemsUpdatingScrollMode="KeepScrollOffset"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="5"
+                            StrokeThickness="1"
+                            BackgroundColor="#f6f6ef"
+                            StrokeShape="RoundRectangle 20,20,20,20">
+                        <StackLayout Margin="10">
+                            <Label Text="{Binding text}"
+                                  FontSize="20"
+                                  Grid.Column="0"
+                                   Margin="5"
+                                  FontAttributes="Bold"/>
+                            <Border StrokeShape="RoundRectangle 20,20,20,20"
+                                    VerticalOptions="Start"
+                                    HorizontalOptions="Start">
+                                <StackLayout VerticalOptions="Start"
+                                                       HorizontalOptions="Start"
+                                                       Margin="10">
+                                    <Label Margin="2">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Time: "
+                                                      FontAttributes="Bold"
+                                                      FontSize="20"/>
+                                                <Span Text="{Binding Date}"
+                                                      FontAttributes="Bold"
+                                                      FontSize="20"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Margin="2">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="By: "
+                                                      FontAttributes="Bold"
+                                                      FontSize="20"/>
+                                                <Span Text="{Binding by}"
+                                                      FontAttributes="Bold"
+                                                      FontSize="20"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                            </Border>
+                        </StackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <ActivityIndicator IsRunning="true"
+                           x:Name="Indicator"
+                           Color="#ff6600"
+                           HeightRequest="50"
+                           WidthRequest="50"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+    </Grid>
+</ContentView>

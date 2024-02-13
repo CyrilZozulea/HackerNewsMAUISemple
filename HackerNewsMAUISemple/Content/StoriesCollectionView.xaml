@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HackerNewsMAUISemple.Content.StoriesCollectionView"
+             xmlns:windows="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;assembly=Microsoft.Maui.Controls">
+    <Grid>
+        <StackLayout>
+            <Grid ColumnDefinitions="*,*,*"
+                  HeightRequest="50"
+                  BackgroundColor="#f6f6ef"
+                  VerticalOptions="Start">
+                <!--<Label Text="ID"
+                   Grid.Column="0"
+                   TextColor="Black"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontSize="20"/>-->
+                <Label Text="Title"
+                       Grid.Column="0"
+                       TextColor="Black"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontSize="20"/>
+                <Label Text="Type"
+                       Grid.Column="1"
+                       TextColor="Black"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontSize="20"/>
+                <Label Text="By"
+                       Grid.Column="2"
+                       TextColor="Black"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontSize="20"/>
+            </Grid>
+
+            <RefreshView x:Name="refresh"
+                         RefreshColor="#ff6600"
+                         IsVisible="false"
+                         windows:RefreshView.RefreshPullDirection="TopToBottom">
+                <CollectionView x:Name="collection"
+                                IsVisible="false"
+                                SelectionChanged="OnSelected"
+                                ItemsUpdatingScrollMode="KeepScrollOffset"
+                                SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border HeightRequest="80"
+                                    StrokeThickness="0">
+                                <Grid ColumnDefinitions="*,*,*"
+                                      Margin="10">
+                                    <!--<Label Text="{Binding id}"
+                                    Grid.Column="0"
+                                    TextColor="Black"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    FontSize="20"/>-->
+                                    <Label Text="{Binding title}"
+                                           Grid.Column="0"
+                                           TextColor="Black"
+                                           LineBreakMode="WordWrap"
+                                           MaxLines="2"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Start"
+                                           FontSize="20"/>
+                                    <Label Text="{Binding type}"
+                                           Grid.Column="1"
+                                           TextColor="Black"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center"
+                                           FontSize="20"/>
+                                    <Label Text="{Binding by}"
+                                           Grid.Column="2"
+                                           TextColor="Black"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center"
+                                           FontSize="20"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+            <Grid x:Name="collection_loader"
+                  IsVisible="false"
+                  Margin="10">
+                <ActivityIndicator IsRunning="true"
+                                   Color="#ff6600"
+                                   HeightRequest="50"
+                                   WidthRequest="50"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+            </Grid>
+        </StackLayout>
+
+        <ImageButton VerticalOptions="End"
+                     HorizontalOptions="End"
+                     Scale="0"
+                     x:Name="up_vector"
+                     Clicked="ScrollUp"
+                     BackgroundColor="#ff6600"
+                     Source="up_vector.png"
+                     WidthRequest="60"
+                     CornerRadius="30"
+                     HeightRequest="60"
+                     Margin="20"/>
+
+        <ActivityIndicator IsRunning="true"
+                           x:Name="Indicator"
+                           Color="#ff6600"
+                           HeightRequest="50"
+                           WidthRequest="50"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+    </Grid>
+</ContentView>
