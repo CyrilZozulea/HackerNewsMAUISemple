@@ -1,6 +1,6 @@
 ### Hello everyone!
 
-> **This a project sample, which are demonstrate the fundamentals possibilities of .NET MAUI framework.**
+> **This is a sample project that demonstrates the core capabilities of the .NET MAUI platform.**
 > 
 > **The project was be inspired by the hacker news forum(https://news.ycombinator.com/), and developed based on hacker news firebase API(https://github.com/HackerNews/API).**
 
